@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - IIT Kanpur</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #f0f4f8, #cfe0e8);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            position: relative;
+            background: #9096dd;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 160px;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-left: 140px;
+        }
+        nav {
+            background: #444;
+            color: white;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background: #555;
+        }
+        .content {
+            padding: 20px;
+        }
+
+        .content h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #003865;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .program-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .program-item {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .program-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .program-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .program-item h3 {
+            margin-bottom: 10px;
+            color: #003865;
+        }
+
+        .program-item p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            background: #003865;
+            color: white;
+            padding: 15px;
+        }
+
+        footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .add-program {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .add-program button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background: #003865;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-program button:hover {
+            background: #555;
+        }
+
+        #program-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #program-modal .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        #program-modal input, #program-modal textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #program-modal button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background: #003865;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #program-modal button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Screenshot_2024-12-21_121939-removebg-preview copy.png" alt="IIT Kanpur Logo">
+        <h1>Programs Offered</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="program1.html">Programs</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h2>Explore Our Academic Programs</h2>
+        <p>
+            IIT Kanpur offers a wide range of academic programs across various disciplines, designed to nurture innovation, research, and excellence. Choose the program that aligns with your aspirations.
+        </p>
+        <div class="program-list">
+            <div class="program-item">
+                <a href="btech.html">  
+                <img src="Screenshot 2024-12-21 184909.png" alt="B.Tech Program">
+                <h3>Bachelor of Technology (B.Tech)</h3>
+                </a>
+                <p>An undergraduate program that provides a strong foundation in engineering and technology.</p>
+            </div>
+            <div class="program-item">
+                <a href="mtech.html">    
+                <img src="Screenshot 2024-12-21 185044.png" alt="M.Tech Program">
+                <h3>Master of Technology (M.Tech)</h3></a>
+                <p>A postgraduate program focused on advanced technical education and research.</p>
+            </div>
+            <div class="program-item">
+                <a href="phd.html"> 
+                <img src="Screenshot 2024-12-21 185211.png" alt="Ph.D. Program">
+                <h3>Doctoral Programs (Ph.D.)</h3></a>
+                <p>Research-intensive programs aimed at fostering innovation and academic excellence.</p>
+            </div>
+            <div class="program-item">
+                <a href="management.html"> 
+                <img src="Screenshot 2024-12-21 185339.png" alt="Management Program">
+                <h3>Management Programs</h3></a>
+                <p>Courses blending technology and management for aspiring leaders and entrepreneurs.</p>
+            </div>
+        </div>
+        <div class="add-program">
+            <button onclick="showModal()">Add Program</button>
+        </div>
+    </div>
+
+    <div id="program-modal">
+        <div class="modal-content">
+            <h3>Add a New Program</h3>
+            <input type="text" id="program-name" placeholder="Program Name">
+            <input type="text" id="program-image" placeholder="Image URL">
+            <textarea id="program-description" placeholder="Program Description"></textarea>
+            <button onclick="addProgram()">Submit</button>
+            <button onclick="hideModal()">Cancel</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 IIT Kanpur. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showModal() {
+            document.getElementById('program-modal').style.display = 'flex';
+        }
+
+        function hideModal() {
+            document.getElementById('program-modal').style.display = 'none';
+        }
+
+        function addProgram() {
+            const name = document.getElementById('program-name').value;
+            const image = document.getElementById('program-image').value;
+            const description = document.getElementById('program-description').value;
+
+            if (name && image && description) {
+                const programList = document.querySelector('.program-list');
+
+                const newProgram = document.createElement('div');
+                newProgram.classList.add('program-item');
+
+                newProgram.innerHTML = `
+                    <img src="${image}" alt="${name}">
+                    <h3>${name}</h3>
+                    <p>${description}</p>
+                `;
+
+                programList.appendChild(newProgram);
+
+                hideModal();
+
+                document.getElementById('program-name').value = '';
+                document.getElementById('program-image').value = '';
+                document.getElementById('program-description').value = '';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - IIT Kanpur</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #e6f7ff, #cce7ff);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            position: relative;
+            background: #9dbbe9;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 170px;
+            height: 100px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-left: 140px;
+        }
+
+        nav {
+            background: #444;
+            color: white;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background: #555;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #003865;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .research-areas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .research-item {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .research-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .research-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .research-item h3 {
+            margin-bottom: 10px;
+            color: #003865;
+        }
+
+        .research-item p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .add-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background: #003865;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-button:hover {
+            background: #0056a3;
+        }
+
+        .form-section {
+            display: none;
+            margin: 40px auto;
+            padding: 20px;
+            max-width: 600px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section h3 {
+            text-align: center;
+            color: #003865;
+            margin-bottom: 20px;
+        }
+
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-section label {
+            font-weight: bold;
+            color: #003865;
+        }
+
+        .form-section input,
+        .form-section textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-section input[type="submit"] {
+            background: #003865;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form-section input[type="submit"]:hover {
+            background: #0056a3;
+        }
+
+        footer {
+            text-align: center;
+            background: #003865;
+            color: white;
+            padding: 15px;
+        }
+
+        footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function toggleForm() {
+            const formSection = document.querySelector('.form-section');
+            formSection.style.display = formSection.style.display === 'block' ? 'none' : 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('.form-section form');
+            const researchAreas = document.querySelector('.research-areas');
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault(); 
+
+                const title = document.getElementById('title').value;
+                const author = document.getElementById('author').value;
+                const description = document.getElementById('description').value;
+                const file = document.getElementById('file').files[0];
+
+                if (title && author && description && file) {
+                    const researchItem = document.createElement('div');
+                    researchItem.className = 'research-item';
+
+                    researchItem.innerHTML = `
+                        <img src="https://via.placeholder.com/300x150.png?text=Research+Paper" alt="${title}">
+                        <h3>${title}</h3>
+                        <p>By: ${author}</p>
+                        <p>${description}</p>
+                    `;
+
+                    researchAreas.appendChild(researchItem);
+
+                    alert('Research paper submitted and displayed successfully!')
+                    form.reset();
+                    toggleForm();
+                } else {
+                    alert('Please fill in all fields and upload a file.');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <img src="Screenshot_2024-12-21_121939-removebg-preview copy.png" alt="IIT Kanpur Logo">
+        <h1>Research at IIT Kanpur</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="program1.html">Programs</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h2>Our Research Excellence</h2>
+        <p>
+            IIT Kanpur is at the forefront of research in science, technology, and engineering. Our state-of-the-art facilities and innovative minds drive discoveries that shape the future.
+        </p>
+        <div class="research-areas">
+            <!-- Existing research items -->
+            <div class="research-item">
+                <img src="Screenshot 2025-01-11 175517.png" alt="Artificial Intelligence">
+                <h3>Artificial Intelligence</h3>
+                <p>Advancing AI research to solve real-world challenges and innovate for the future.</p>
+            </div>
+        </div>
+        <button class="add-button" onclick="toggleForm()">Add Research Paper</button>
+    </div>
+
+    <div class="form-section">
+        <h3>Add a Research Paper</h3>
+        <form>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="author">Author(s):</label>
+            <input type="text" id="author" name="author" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+
+            <label for="file">Upload File:</label>
+            <input type="file" id="file" name="file" accept=".pdf" required>
+
+            <input type="submit" value="Submit Research Paper">
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 IIT Kanpur. All rights reserved.</p>
+    </footer>
+</body>
+</html>

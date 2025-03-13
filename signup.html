@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - IIT Academic Center</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #6a11cb, #9dbbe9);
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        header img {
+            width: 120px;
+        }
+
+        header h1 {
+            margin: 10px 0 0;
+            font-size: 2.5em;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px);
+        }
+
+        .signup-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .signup-card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .signup-card label {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .signup-card input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .signup-card button {
+            width: 100%;
+            padding: 12px;
+            background: #ff7e5f;
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .signup-card button:hover {
+            background: #feb47b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Screenshot_2024-12-21_121939-removebg-preview copy.png" alt="IITK Logo">
+        <h1>Join IIT Academic Center</h1>
+    </header>
+    <div class="container">
+        <div class="signup-card">
+            <h2>Create Your Account</h2>
+            <form id="signupForm">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (email && password) {
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('userPassword', password);
+                alert('Signup successful! Please log in.');
+                window.location.href = 'login.html';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    </script>
+</body>
+</html>
